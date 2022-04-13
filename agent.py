@@ -26,7 +26,7 @@ class Agent():
     self.model = ActorCritic(use_bin=self.use_bin, use_scent=self.use_scent, use_viz=self.use_viz).float()
     
     self.model= self.model.to(self.device)
-    self.optim = torch.optim.Adam(self.model.parameters(),lr=0.0001)
+    self.optim = torch.optim.Adam(self.model.parameters(),lr=0.01)
     self.critic_loss = torch.nn.MSELoss() # torch.nn.L1Loss()
     
     #model storing parameters
@@ -77,7 +77,7 @@ class Agent():
       self.R.append(reward)
     
       # update model model 
-      if(timestep % self.batch_size == 0 or done ):
+      if((timestep % self.batch_size == 0 or done )and len(self.a)>3):
         
         #count number of updates 
         self.num_updates =self.num_updates+1
