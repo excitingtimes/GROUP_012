@@ -44,7 +44,7 @@ class Agent():
     self.gam= gamma
 
   def load_weights(self,root_path,location='ac_model.pth'):
-    self.model.load_state_dict(torch.load(f'{root_path}/{location}',map_location=torch.device(self.devices)))
+    self.model.load_state_dict(torch.load(f'{root_path}/{location}',map_location=torch.device(self.device)))
     
   def act(self, curr_obs, mode='eval'):
     '''
