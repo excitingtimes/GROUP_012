@@ -19,7 +19,7 @@ class Agent():
     self.env_specs = env_specs
     
     #model parameters
-    self.device=devices
+    self.device= torch.device("cuda" if torch.cuda.is_available() else "cpu")
     self.use_bin=use_bin
     self.use_scent=use_scent
     self.use_viz=use_viz
