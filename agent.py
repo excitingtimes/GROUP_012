@@ -15,7 +15,7 @@ class Agent():
 
   def __init__(self, env_specs, use_bin=True, use_scent=True,
                use_viz=True, devices='cpu' ,
-               batch_size=10, gamma= 0.9,mdl_load=''):
+               batch_size=1000, gamma= 0.9,mdl_load=''):
     self.env_specs = env_specs
     
     #model parameters
