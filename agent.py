@@ -15,7 +15,7 @@ class Agent():
 
   def __init__(self, env_specs, use_bin=True, use_scent=True,
                use_viz=True, devices='cpu' ,
-               batch_size=1000, gamma= 0.9,mdl_load=''):
+               batch_size=1000, gamma= 0.01,mdl_load=''):
     self.env_specs = env_specs
     
     #model parameters
@@ -43,7 +43,7 @@ class Agent():
     self.a= []
     self.gam= gamma
 
-  def load_weights(self,root_path,location='ac_model.pth'):
+  def load_weights(self,root_path,location='ac_model_0_01.pth'):
     self.model.load_state_dict(torch.load(f'{root_path}/{location}',map_location=torch.device(self.device)))
     
   def act(self, curr_obs, mode='eval'):
