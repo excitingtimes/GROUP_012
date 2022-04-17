@@ -63,7 +63,6 @@ class Agent():
       if(mode =='train'):
         #sample
         action = np.random.choice([0,1,2,3], p=next_action.squeeze(0).detach().cpu().numpy())
-        self.action=action
         #store state 
       
         self.S_t.append(inpt)
@@ -71,6 +70,8 @@ class Agent():
         self.a.append(self.action)
       else:
         action = next_action.squeeze(0).detach().cpu().numpy().argmax()
+        
+    self.action=action
     return self.action
 
   def update(self, curr_obs, action, reward, next_obs, done, timestep):
