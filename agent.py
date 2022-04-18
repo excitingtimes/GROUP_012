@@ -71,7 +71,7 @@ class Agent():
       else:
         action = next_action.squeeze(0).detach().cpu().numpy().argmax()
         
-    self.action=action
+      self.action=action
     return self.action
 
   def update(self, curr_obs, action, reward, next_obs, done, timestep):
