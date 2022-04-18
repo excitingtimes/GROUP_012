@@ -67,7 +67,7 @@ class Agent():
       
         self.S_t.append(inpt)
         #store action 
-        self.a.append(self.action)
+        self.a.append(action)
       else:
         action = next_action.squeeze(0).detach().cpu().numpy().argmax()
         
