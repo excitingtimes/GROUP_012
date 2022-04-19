@@ -60,18 +60,14 @@ class Agent():
       inpt =  self.get_x(curr_obs)
       #generate prob dist
       _ , next_action =self.model(**inpt)
-      if(mode =='train'):
-        #sample
-        action = np.random.choice([0,1,2,3], p=next_action.squeeze(0).detach().cpu().numpy())
-        #store state 
-      
+      #sample
+      action = np.random.choice([0,1,2,3], p=next_action.squeeze(0).detach().cpu().numpy())
+      self.action=action
+      #store state 
+      if(mode=='train'):
         self.S_t.append(inpt)
         #store action 
-        self.a.append(action)
-      else:
-        action = next_action.squeeze(0).detach().cpu().numpy().argmax()
-        
-      self.action=action
+        self.a.append(self.action)
     return self.action
 
   def update(self, curr_obs, action, reward, next_obs, done, timestep):
