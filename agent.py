@@ -124,7 +124,7 @@ class Agent():
       out_st[k] = all_states[:-1, ...]
       out_sttp1[k] = all_states[1:, ...]
     
-    return out_st,out_st
+    return out_st,out_sttp1
   def get_x(self, obs):
     '''helper function to get model inputs based on agent parameters'''
     out= {'x_viz':None, 'x_scent':None, 'x_bin':None}
