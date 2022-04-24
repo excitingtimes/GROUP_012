@@ -77,7 +77,7 @@ class Agent():
       self.R.append(reward)
     
       # update model model 
-      if((timestep % self.batch_size == 0 or done )and len(self.a)>3):
+      if((timestep % self.batch_size == 0 or done )):
         
         #count number of updates 
         self.num_updates =self.num_updates+1
